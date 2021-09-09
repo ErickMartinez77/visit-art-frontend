@@ -1,0 +1,73 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif
+}
+
+body{
+      background: #3282b8;
+}
+.logo{
+margin-top: 25px;
+margin-bottom: 25px;
+margin-left: 150px;
+}
+
+.topFondo .button img{
+  margin-top: 15px;
+  margin-right: 12px;
+}
+
+.topFondo {
+width: 100%;
+height: 150px;
+left: 0px;
+top: 0px;
+background: #000000;
+}
+
+.topFondo .button {
+  float: right;
+  margin-right: 120px;
+}
+
+.button {
+ padding-top: 50px ;
+ cursor: pointer;
+}
+
+.button li {
+ display: inline-block;
+ border: 5px solid #28527a;
+ border-radius: 25px;
+ margin-left: 20px;
+
+}
+
+.button li a {
+ font-family: Arial;
+ font-size: 30px;
+ float: left;
+ text-decoration: none;
+ padding: 20px;
+ color: #f4f9f9;
+}
+
+.button li a:hover {
+ color: #9ecca4;
+}
+
+.buttonLogout{
+  float: right;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #000000;
+  border-color: transparent;
+  padding-top: 100px;
+  cursor: pointer;
+}
+
+.buttonLogout:hover{
+  color: #3282b8;
+}

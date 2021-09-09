@@ -1,0 +1,83 @@
+<div class="f">
+    <br>
+    <button mat-flat-button (click)="showForm()" color="primary">Crear</button>
+    <br>
+    <div *ngIf="mostrarForm">
+        <form [formGroup]="myForm" novalidate>
+            <mat-dialog-content>
+                <div class="row">
+                    <div class="col-md-12">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Titulo</mat-label>
+                            <input formControlName="vTitulo" matInput [(ngModel)]="pintura.titulo">
+                        </mat-form-field>
+                        <app-print-error [control]="f.vTitulo"></app-print-error>
+                    </div>
+                    <div class="col-md-12">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Descripcion</mat-label>
+                            <input formControlName="vDescripcion" matInput [(ngModel)]="pintura.descripcion">
+                        </mat-form-field>
+                        <app-print-error [control]="f.vDescripcion"></app-print-error>
+                    </div>
+                    <div class="col-md-12">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Precio</mat-label>
+                            <input formControlName="vPrecio" matInput [(ngModel)]="pintura.precio">
+                        </mat-form-field>
+                        <app-print-error [control]="f.vPrecio"></app-print-error>
+                    </div>
+                    <div class="col-md-12">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Imagen</mat-label>
+                            <input formControlName="vImagenes" matInput [(ngModel)]="pintura.imagenes">
+                        </mat-form-field>
+                        <app-print-error [control]="f.vImagenes"></app-print-error>
+                    </div>
+                    <div class="col-md-12">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Secciones</mat-label>
+                            <mat-select formControlName="vSecciones" [(ngModel)]="pintura.secciones" multiple>
+                                <mat-option *ngFor="let seccion of listaSecciones" [value]="seccion">{{seccion}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <app-print-error [control]="f.vSecciones"></app-print-error>
+                    </div>
+                </div>
+            </mat-dialog-content>
+            <mat-dialog-actions *ngIf="!editando" align="end">
+                <button mat-flat-button (click)="ocultar()">Cancelar</button>
+                <button mat-flat-button (click)="postPintura()" color="primary"
+                    [disabled]="myForm.invalid || !myForm.dirty" cdkFocusInitial>Guardar</button>
+            </mat-dialog-actions>
+            <mat-dialog-actions *ngIf="editando" align="end">
+                <button mat-flat-button (click)="ocultar()">Cancelar</button>
+                <button mat-flat-button (click)="putPintura()" color="primary"
+                    [disabled]="myForm.invalid || !myForm.dirty" cdkFocusInitial>Editar</button>
+            </mat-dialog-actions>
+        </form>
+    </div>
+
+    <br>
+    <table>
+        <tr>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Imagen</th>
+            <th>Secciones</th>
+        </tr>
+        <tr *ngFor="let item of pinturas">
+            <td>{{item.titulo}}</td>
+            <td>{{item.descripcion}}</td>
+            <td>{{item.precio}}</td>
+            <td>{{item.imagenes}}</td>
+            <td>{{item.secciones}}</td>
+            <td>
+                <button mat-flat-button (click)="editar(item, item._id)" color="primary">Editar</button>
+                <button mat-flat-button (click)="deletePintura(item._id)" color="primary">Eliminar</button>
+            </td>
+        </tr>
+    </table>
+</div>

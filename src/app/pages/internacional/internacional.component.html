@@ -1,0 +1,18 @@
+<div style="background:#EBEBEB;">
+
+    <div class="content">
+      <p style="margin-left:6%; padding-top:50px; color:#ffffff; font-size: 45px;"><b>Pinturas Internacionales</b></p>
+      <div *ngFor="let pintura of pinturas" class="post" [routerLink]="['/',pintura._id]">
+        <div class="image">
+          <img [src]="pintura.imagenes" />
+        </div>
+        <div class="info">
+          <p style="padding-bottom: 10px; color: #81b214;">{{pintura.secciones}}</p>
+          <p style="font-size: 21px; margin-bottom: 15px; color: #252525;"><a><b>{{pintura.titulo}}</b></a></p>
+          <hr class="hrPost">
+        </div>
+        <ul>
+          <li>{{pintura.descripcion}}</li>
+        </ul>
+      </div>
+    </div>

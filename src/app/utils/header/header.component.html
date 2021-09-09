@@ -1,0 +1,24 @@
+
+    <div class="topFondo" *ngIf="showHeader">
+        <button class = "buttonLogout" mat-flat-button (click)="irALogin()" color="primary">Logout</button>
+
+        <img src="./assets/img/visit-art.jpeg" height="100px" width="150px" class="logo">
+        <div class="button">
+            <li>
+                <img src="./assets/img/home.gif" height="25px" width="25px">
+                <a (click)="irInicio()">Inicio</a>
+            </li>
+
+            <li>
+            <img src="./assets/img/mundo.png" height="25px" width="25px">
+                <a (click)="irInternacional()">Internacional</a>
+            </li>
+
+            <li>
+                <img src="./assets/img/bolivia.png" height="25px" width="25px">
+                <a (click)="irNacional()">Nacional</a>
+            </li>
+
+        </div>
+    </div>
+

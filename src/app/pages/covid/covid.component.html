@@ -1,0 +1,49 @@
+<div style="background:#EBEBEB;">
+
+	</div>
+    <br><br>
+
+    <hr>
+    <div class="button2">
+      <a class="btn1" (click)="ocultar()">Nacional</a>
+      <a class="btn2" (click)="mostrar()">Internacional</a>
+    <p style="margin-left:6%; padding-top:50px; color:#e36bae; font-size: 45px;"><b>Covid</b></p>
+
+    <div class="f" *ngIf="mostrarDatos">
+      <table>
+        <tr>
+          <th>Casos totales</th>
+          <th>Casos activos</th>
+          <th>Fallecidos totales</th>
+          <th>Casos recuperados</th>
+          <th>Casos ayer</th>
+          <th>Fallecidos ayer</th>
+          <th>Recuperados ayer</th>
+        </tr>
+        <tr>
+          <th>{{datos.cases}}</th>
+          <th>{{datos.active}}</th>
+          <th>{{datos.deaths}}</th>
+          <th>{{datos.recovered}}</th>
+          <th>{{datos.todayCases}}</th>
+          <th>{{datos.todayDeaths}}</th>
+          <th>{{datos.todayRecovered}}</th>
+        </tr>
+      </table>
+    </div>
+
+    <div class="content" *ngIf="!mostrarDatos">
+      <div *ngFor="let noticia of noticias" class="post" [routerLink]="['/',noticia._id]">
+        <div class="image">
+          <img [src]="noticia.imagenes" />
+        </div>
+        <div class="info">
+          <p style="padding-bottom: 10px; color: #e36bae;">{{noticia.secciones}}</p>
+          <p style="font-size: 21px; margin-bottom: 15px; color: #252525;"><a><b>{{noticia.titulo}}</b></a></p>
+          <hr class="hrPost">
+        </div>
+        <ul>
+          <li>{{noticia.descripcion}}</li>
+        </ul>
+      </div>
+    </div>
